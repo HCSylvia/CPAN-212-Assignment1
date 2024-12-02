@@ -1,5 +1,5 @@
 const students = require('../data/studentData');
-const courses = require('../data/courseData');  // Add this line
+const courses = require('../data/courseData');
 const fs = require('fs').promises;
 const path = require('path');
 
@@ -37,8 +37,8 @@ const createStudent = async (req, res) => {
             name,
             department,
             semester: parseInt(semester),
-            enrolledCourses: [],  // Always initialize as empty array
-            completedCourses: []  // Always initialize as empty array
+            enrolledCourses: [],  
+            completedCourses: []  
         };
         
         students.push(newStudent);
@@ -84,7 +84,6 @@ const enrollCourse = async (req, res) => {
             return res.status(400).json({ message: 'Student already enrolled in this course' });
         }
 
-        // Add course to enrolled courses
         student.enrolledCourses.push({
             id: course.id,
             name: course.name,
